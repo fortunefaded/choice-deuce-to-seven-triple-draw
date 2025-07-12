@@ -88,7 +88,7 @@ interface GameState {
   minimumRaiseExample?: string
 }
 
-// Better Hand表記を具体的なハンドリストに展開する関数を追加
+// Better Hand表記を具体的なハンドリストに展開する関数
 const expandBetterHandNotation = (pattern: string): string[] => {
   const results: string[] = []
 
@@ -170,7 +170,7 @@ const expandBetterHandNotation = (pattern: string): string[] => {
   return [pattern] // Return as-is if no pattern matches
 }
 
-// 内訳付きでHandRangeを表示する関数を追加
+// 内訳付きでHandRangeを表示する関数
 const formatHandRangeWithBreakdown = (range: HandRange, showBreakdown = false): string => {
   const parts = []
 
@@ -1061,7 +1061,6 @@ export default function UTGLearningApp() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h3 className="font-semibold text-green-400 mb-2">Pat Hands</h3>
-                      // 戦略管理画面での個別戦略表示も更新（showBreakdown: trueに変更）
                       <div className="bg-slate-600 p-3 rounded text-sm">
                         {formatHandRangeWithBreakdown(strategy.patHands, true) || (
                           <div className="text-gray-400">Inherits from {strategy.inheritsFrom}</div>
@@ -1071,7 +1070,6 @@ export default function UTGLearningApp() {
 
                     <div>
                       <h3 className="font-semibold text-blue-400 mb-2">Draw 1 Hands</h3>
-                      // 戦略管理画面での個別戦略表示も更新（showBreakdown: trueに変更）
                       <div className="bg-slate-600 p-3 rounded text-sm">
                         {formatHandRangeWithBreakdown(strategy.draw1Hands, true) || (
                           <div className="text-gray-400">Inherits from {strategy.inheritsFrom}</div>
@@ -1081,7 +1079,6 @@ export default function UTGLearningApp() {
 
                     <div>
                       <h3 className="font-semibold text-yellow-400 mb-2">Draw 2 Hands</h3>
-                      // 戦略管理画面での個別戦略表示も更新（showBreakdown: trueに変更）
                       <div className="bg-slate-600 p-3 rounded text-sm">
                         {formatHandRangeWithBreakdown(strategy.draw2Hands, true) || (
                           <div className="text-gray-400">Inherits from {strategy.inheritsFrom}</div>
@@ -1091,7 +1088,6 @@ export default function UTGLearningApp() {
 
                     <div>
                       <h3 className="font-semibold text-purple-400 mb-2">Draw 3 Hands</h3>
-                      // 戦略管理画面での個別戦略表示も更新（showBreakdown: trueに変更）
                       <div className="bg-slate-600 p-3 rounded text-sm">
                         {formatHandRangeWithBreakdown(strategy.draw3Hands, true) || (
                           <div className="text-gray-400">Inherits from {strategy.inheritsFrom}</div>
@@ -1162,7 +1158,8 @@ export default function UTGLearningApp() {
             戦略インポート
           </Button>
         </div>
-        // デバッグ用の戦略検証セクションを戦略管理画面に追加 // 戦略管理画面の最後に以下のセクションを追加：
+
+        {/* Better Hand表記検証セクション */}
         <div className="mt-8 bg-slate-700 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-4 text-cyan-400">Better Hand表記検証</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -1234,7 +1231,6 @@ export default function UTGLearningApp() {
       <div className="absolute top-20 left-4 max-w-xs">
         <div className="bg-slate-800/90 backdrop-blur-sm rounded-lg p-4 border-2 border-blue-500/30">
           <div className="text-white text-sm font-semibold mb-3">{yourPosition} Strategy</div>
-          // メインゲーム画面の戦略表示部分も更新
           <div className="text-xs text-blue-300 space-y-2">
             <div>
               <span className="text-green-400 font-semibold">Pat:</span>
